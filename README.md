@@ -15,6 +15,26 @@ The project is maintained by a non-profit organisation called the **Ghost Founda
 - [Feature Requests](http://ideas.ghost.org/)
 - [Dev Blog](http://dev.ghost.org)
 
+# Mixpanel Integration
+
+This fork of Ghost has Mixpanel Analytics integrated. In order to track page/post hits on your blog you need edit `core/server/controller/frontend.js` like so:
+
+    // Set your MixPanel Token Here
+    mixpanel    = Mixpanel.init('48acf5a5c39b81a6cd0fd66c6ea1a66c'),
+
+In Mixpanel you can now access slugs aka the permalink. You could setup a custom event like this:
+
+![Mixpanel integration with Ghost Blog](http://res.cloudinary.com/meshfields/image/upload/v1427242773/mixpanel_with_ghost_tgswci.png)
+
+In `core/server/controller/frontend.js` you could also conveniently let express.js send other parameters to Mixpanel as described here: https://mixpanel.com/help/reference/javascript
+
+You *will* need to do a `npm install` against the packages.json from my repo to pull mixpanel into ghost. In case you have no idea what this means just change directory into the pulled fork and do a:
+
+    $ npm install
+
+Now you are good to go!
+
+The remainder of this file is the original Ghost Readme.
 
 # Quick Start Install
 
