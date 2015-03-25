@@ -17,10 +17,7 @@ var moment      = require('moment'),
     cheerio     = require('cheerio'),
     routeMatch  = require('path-match')(),
     Mixpanel    = require('mixpanel'),
-
-    // Set your MixPanel Token Here                                                                                       
     mixpanel    = Mixpanel.init('385cdf5a5c29b81a6cd0f166c6ea4a66c'),
-
     frontendControllers,
     staticPostPermalink,
 
@@ -329,8 +326,8 @@ frontendControllers = {
             // Sanitize params we're going to use to lookup the post.
             postLookup = _.pick(params, 'slug', 'id');
 
-            // Mixpanel Tracking                                                                                           
-            mixpanel.track("Post", postLookup);
+            // Mixpanel Tracking
+            mixpanel.track('Post', postLookup);
 
             // Add author, tag and fields
             postLookup.include = 'author,tags,fields';
